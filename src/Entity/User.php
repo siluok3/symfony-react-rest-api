@@ -11,7 +11,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ApiResource(
- *     collectionOperations={},
+ *     collectionOperations={"post"},
  *     itemOperations={"get"},
  *     normalizationContext={
  *         "groups"={"read"}
