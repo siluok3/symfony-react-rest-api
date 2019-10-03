@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\Collection;
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
@@ -32,22 +33,29 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=255)
      * @Groups({"read"})
+     * @Assert\NotBlank()
+     * @Assert\Length(min=5, max=20)
      */
     private $username;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $password;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Groups({"read"})
+     * @Assert\NotBlank()
+     * @Assert\Length(min=5, max=70)
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
+     * @Assert\Email()
      */
     private $email;
 
