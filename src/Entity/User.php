@@ -110,36 +110,24 @@ class User implements UserInterface
         return $this;
     }
 
-    /**
-     * @return Collection
-     */ 
     public function getComments(): Collection 
     {
         return $this->comments;
     }
 
-    /**
-     * @param Comment
-     */ 
-    public function setComments($comments): self
+    public function setComments(Comment $comments): self
     {
         $this->comments = $comments;
 
         return $this;
     }
 
-    /**
-     * @return Collection
-     */ 
     public function getPosts(): Collection
     {
         return $this->posts;
     }
 
-    /**
-     * @param BlogPost
-     */ 
-    public function setPosts($posts): self
+    public function setPosts(BlogPost $posts): self
     {
         $this->posts = $posts;
 
@@ -155,23 +143,10 @@ class User implements UserInterface
         return ['ROLE_USER'];
     }
 
-    /**
-     * Returns the salt that was originally used to encode the password.
-     *
-     * This can return null if the password was not encoded using a salt.
-     *
-     * @return string|null The salt
-     */
-    public function getSalt()
+    public function getSalt(): ?string
     {
         return null;
     }
 
-    /**
-     * Removes sensitive data from the user.
-     *
-     * This is important if, at any given point, sensitive information like
-     * the plain-text password is stored on this object.
-     */
     public function eraseCredentials(){}
 }
