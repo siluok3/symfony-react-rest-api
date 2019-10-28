@@ -17,7 +17,12 @@ use Symfony\Component\Validator\Constraints as Assert;
  *              "access_control"="is_granted('IS_AUTHENTICATED_FULLY')"
  *          }
  *      },
- *      itemOperations={"get"}
+ *      itemOperations={
+ *          "get",
+ *          "put"={
+ *              "access_control"="is_granted('IS_AUTHENTICATED_FULLY') and object.getAuthor() == user"
+ *          }
+ *      }
  * )
  */
 class BlogPost
